@@ -12,11 +12,11 @@ public class UserServiceImpl implements UserService {
     }
 
     public void createUsersTable() {
-        userDaoHibernate.createUsersTable();
+        this.userDaoHibernate.createUsersTable();
     }
 
     public void dropUsersTable() {
-        userDaoHibernate.dropUsersTable();
+        this.userDaoHibernate.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
@@ -24,14 +24,14 @@ public class UserServiceImpl implements UserService {
     }
 
     public void removeUserById(long id) {
-        userDaoHibernate.removeUserById(id);
+        this.userDaoHibernate.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        return userDaoHibernate.getAllUsers();
+        return this.userDaoHibernate.getAllUsers();
     }
 
     public void cleanUsersTable() {
-        userDaoHibernate.cleanUsersTable();
+        this.userDaoHibernate.cleanUsersTable();
     }
 }
