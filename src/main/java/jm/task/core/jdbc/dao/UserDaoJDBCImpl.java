@@ -33,7 +33,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     /*сохранение пользователя*/
     public void saveUser(String name, String lastName, byte age) {
-        try (CallableStatement query = Util.getConnection().prepareCall("INSERT INTO User (name, lastName, age) VALUES (?, ?, ?)")) {
+        try (PreparedStatement query = Util.getConnection().prepareStatement("INSERT INTO User (name, lastName, age) VALUES (?, ?, ?)")) {
             query.setString(1, name);
             query.setString(2, lastName);
             query.setInt(3, age);
@@ -51,7 +51,7 @@ public class UserDaoJDBCImpl implements UserDao {
     /*вывод в консоль всех пользователей*/
     public List<User> getAllUsers() {
         List<User> list = new ArrayList<>();
-        try (CallableStatement query = Util.getConnection().prepareCall("select * from user")) {
+        try (PreparedStatement query = Util.getConnection().prepareStatement("select * from user")) {
             ResultSet resultSet = query.executeQuery();
             while (resultSet.next()) {
                 User user = new User();
