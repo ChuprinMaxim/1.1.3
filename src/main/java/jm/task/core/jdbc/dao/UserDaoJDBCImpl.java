@@ -57,7 +57,7 @@ public class UserDaoJDBCImpl implements UserDao {
     /*вывод в консоль всех пользователей*/
     public List<User> getAllUsers() {
         List<User> list = new ArrayList<>();
-        try (PreparedStatement query = Util.getConnection().prepareStatement("select * from user")) {
+        try (PreparedStatement query = Util.getConnection().prepareStatement("SELECT * FROM user")) {
             ResultSet resultSet = query.executeQuery();
             while (resultSet.next()) {
                 User user = new User();
